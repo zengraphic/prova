@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!--- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/base-libs.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/base-style.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/wind-style.min.css" />
+    <!--- /CSS -->
+    <!--- JS -->
+    <script type="text/javascript" src="/js/base-libs.min.js"></script>
+    <script type="text/japt" src="/js/base.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <!--- /JS -->
+</head>
+
+<body class="home_page">
+    <div class="container-wind">
+        <div class="roasdasd">
+            <div class="blocco_import">
+                <div class="blocco_counter">
+                    <!-- NOME UNIVOCO PER IL BLOCCO (modificabile, non ha classi o dipendenze) -->
+                    <!--___________ ______________________INIZIO BLOCCO UNO_________________________________ -->
+                    <div class="counter_block">
+                        <div class="counter_block_container">
+                            <div class="counter_block_items--title">
+                                Affrettati!! L’offerta sarà disponibile ancora per
+                            </div>
+                            <div class="counter_block_items--data" data-event="2016/10/13">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+jQuery(document).ready(function($) {
+    var counter = $(".counter_block_items--data"),
+    data_event = counter[0].getAttribute("data-event") || "";
+    counter.countdown(data_event, function(event) {
+            $(this).html(event.strftime('<span class="time gg">%D</span> giorni <span class="time hh">%H</span> ore <span class="time mm">%M</span> minuti <span class="time sec">%S</span> secondi'));
+        })
+        .on('update.countdown', function() {})
+        .on('finish.countdown', function() {})
+})
+</script>
+
+</html>
