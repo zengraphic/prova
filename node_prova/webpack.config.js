@@ -6,13 +6,18 @@ var OUTPUT = path.resolve(__dirname, "output");
 
 var config = {  
     entry: DEV + "/index.jsx",
-      output: {     path: OUTPUT,     filename: "myCode.js"   },
+      output: {    
+        path: OUTPUT,
+            
+        filename: "myCode.js"  
+    },
     module: { 
         loaders: [{                  
-            include: DEV,
-                       
-            loader: "babel",
-                 
+            test: /\.js$/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015', 'react']
+            }
         }]                     
     }
 };
