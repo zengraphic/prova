@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "prova componenti node",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Alessandro Napolitano",
-  "license": "ISC",
   "devDependencies": {
     "babel-preset-env": "latest",
     "babel-preset-react": "latest",
@@ -27,8 +22,7 @@
     "serve-favicon": "latest",
     "superagent": "latest",
     "uglifyjs": "latest",
-    "watchify": "latest",
-    "shell-executor": "latest"
+    "watchify": "latest"
   },
   "dependencies": {
     "basic-auth": "latest",
@@ -36,8 +30,11 @@
     "express": "latest"
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "author": "Alessandro Napolitano",
+  "license": "ISC",
   "browserify": {
     "transform": [ "babelify" ]
   }
