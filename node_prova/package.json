@@ -23,7 +23,7 @@
     },
     "author": "Alessandro Napolitano",
     "license": "ISC",
-    "browserify": {
-        "transform": ["babelify"]
+    "babel": {
+        "presets": ["es2015", "react"]
     }
 }
