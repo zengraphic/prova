@@ -4,33 +4,18 @@
     "description": "prova componenti node",
     "main": "index.js",
     "devDependencies": {
-        "babel-preset-env": "latest",
-        "babel-preset-react": "latest",
         "babelify": "latest",
         "browser-sync": "latest",
         "browserify": "latest",
-        "browserify-middleware": "latest",
-        "history": "latest",
-        "jsxstyle": "latest",
-        "react": "latest",
-        "react-dom": "latest",
-        "react-router": "latest",
-        "react-bootstrap": "latest",
-        "react-router-bootstrap": "latest",
-        "reactify": "latest",
-        "reflux": "latest",
-        "serve-favicon": "latest",
-        "superagent": "latest",
-        "uglifyjs": "latest",
-        "watchify": "latest",
-        "webpack": "^3.6.0"
+        "browserify-middleware": "latest"
     },
     "dependencies": {
         "babel-loader": "^7.1.2",
+        "babel-preset-env": "latest",
         "babel-preset-react": "^6.24.1",
-        "basic-auth": "latest",
-        "compression": "latest",
-        "express": "latest"
+        "react": "latest",
+        "react-dom": "latest",
+        "webpack": "^3.6.0"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
