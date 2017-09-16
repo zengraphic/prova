@@ -1,0 +1,14 @@
+{
+  "name": "prova-node",
+  "version": "1.0.0",
+  "description": "prova componenti node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alessandro Napolitano",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^14.4.0"
+  }
+}
