@@ -22,9 +22,12 @@
     "serve-favicon": "latest",
     "superagent": "latest",
     "uglifyjs": "latest",
-    "watchify": "latest"
+    "watchify": "latest",
+    "webpack": "^3.6.0"
   },
   "dependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
     "basic-auth": "latest",
     "compression": "latest",
     "express": "latest"
@@ -36,6 +39,8 @@
   "author": "Alessandro Napolitano",
   "license": "ISC",
   "browserify": {
-    "transform": [ "babelify" ]
+    "transform": [
+      "babelify"
+    ]
   }
 }
