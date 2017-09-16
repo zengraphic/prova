@@ -9,12 +9,36 @@
   "author": "Alessandro Napolitano",
   "license": "ISC",
   "devDependencies": {
-    "babelify": "^7.3.0",
-    "browserify": "^14.4.0",
-    "gulp": "^3.9.1",
-    "vinyl-source-stream": "^1.1.0"
+    "babel-preset-env": "latest",
+    "babel-preset-react": "latest",
+    "babelify": "latest",
+    "browser-sync": "latest",
+    "browserify": "latest",
+    "browserify-middleware": "latest",
+    "history": "latest",
+    "jsxstyle": "latest",
+    "react": "latest",
+    "react-bootstrap": "latest",
+    "react-dom": "latest",
+    "react-router": "latest",
+    "react-router-bootstrap": "latest",
+    "reactify": "latest",
+    "reflux": "latest",
+    "serve-favicon": "latest",
+    "superagent": "latest",
+    "uglifyjs": "latest",
+    "watchify": "latest",
+    "shell-executor": "latest"
   },
   "dependencies": {
-    "react": "^15.6.1"
+    "basic-auth": "latest",
+    "compression": "latest",
+    "express": "latest"
+  },
+  "scripts": {
+    "start": "node server.js",
+  },
+  "browserify": {
+    "transform": [ "babelify" ]
   }
 }
