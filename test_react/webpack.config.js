@@ -11,11 +11,11 @@ module.exports = {
         loaders: [{
             test: /\.js$/,
             include: path.resolve(__dirname, "dev"),
+            exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
                 presets: ['react', 'es2015', 'env']
             }
-
         }]
     }
 }
