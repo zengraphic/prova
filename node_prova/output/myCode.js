@@ -65,14 +65,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!***********************!*\
-  !*** ./dev/index.jsx ***!
-  \***********************/
-/*! no static exports found */
-/*! all exports used */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module parse failed: /Users/zengraphic/Documents/REPO/prova/node_prova/dev/index.jsx Unexpected token (6:11)\\nYou may need an appropriate loader to handle this file type.\\n| class App extends React.Component {\\n|   render () {\\n|     return <p> Hello React!</p>;\\n|   }\\n| }\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///0\n");
+throw new Error("Module parse failed: /Users/zengraphic/Documents/REPO/prova/node_prova/dev/index.jsx Unexpected token (4:14)\nYou may need an appropriate loader to handle this file type.\n| import ReactDOM from 'react-dom';\n| \n| const prova = <h1>Hello</h1>;\n| \n| ReactDOM.render(prova,document.getElementById('container'));");
 
 /***/ })
 /******/ ]);
