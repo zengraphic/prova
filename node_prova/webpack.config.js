@@ -15,9 +15,12 @@ var config = {  
         loaders: [{                  
             test: /\.js$/,
             loader: 'babel-loader',
+            exclude: /node-modules/,
             query: {
                 presets: ['es2015', 'react']
             }
         }]                     
     }
 };
+
+module.exports = config;
