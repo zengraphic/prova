@@ -1,1 +1,7 @@
-node_prova/.DS_Store
+test_react/node_modules
+.DS_Store
+test_react/.DS_Store
+test_react/dev/.DS_Store
+test_react/dev/app/.DS_Store
+test_react/dist/.DS_Store
+.DS_Store
