@@ -1,5 +1,9 @@
 var path = require("path");
 
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
     entry: path.resolve(__dirname, "dev") + '/app/index.js',
     output: {
@@ -8,14 +12,16 @@ module.exports = {
         publicPath: '/app/'
     },
     module: {
-        loaders: [{
+        loaders: [
+          {
             test: /\.js$/,
-            include: path.resolve(__dirname, "dev"),
-            exclude: /node_modules/,
             loader: 'babel-loader',
-            query: {
-                presets: ['react', 'es2015', 'env']
+            exclude: /node_modules/,
+            query  :{
+                presets:['react','es2015']
             }
-        }]
-    }
-}
+          }
+        ],
+      },
+      plugins: []
+};
