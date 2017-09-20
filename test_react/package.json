@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "npm run build",
         "end": "npm run prod",
-        "build": "webpack-dev-server --content-base dev/ --inline --hot --port 1234",
+        "build": "webpack-dev-server --content-base dev/ --inline --hot --port 1234 --open",
         "prod": "NODE_ENV=production webpack"
     },
     "author": "Alessandro Napolitano",
