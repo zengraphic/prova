@@ -1,0 +1,467 @@
+@import "https://fonts.googleapis.com/css?family=Lato:900,700,400|Karla:400";
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body * {
+  box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+h1 {
+  font-family: "Lato", sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.20;
+  opacity: 1.00;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  letter-spacing: -0.72px;
+  word-spacing: 0.00px;
+  text-transform: uppercase; }
+
+h2 {
+  font-family: "Lato", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.20;
+  opacity: 1.00;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  letter-spacing: -0.72px;
+  word-spacing: 0.00px;
+  text-transform: none; }
+
+h3 {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.20;
+  opacity: 1.00;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  letter-spacing: 0.00px;
+  word-spacing: 0.00px;
+  text-transform: none; }
+
+p {
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.60;
+  opacity: 0.70;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  letter-spacing: -0.30px;
+  word-spacing: -0.10px;
+  text-transform: none; }
+
+/* ___________________ MIXIN __________________
+ -------->        BREAKPOINT MIXIN */
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center; }
+
+body,
+html {
+  font-family: "Lato", sans-serif;
+  font-size: 18px; }
+
+.clear {
+  clear: both; }
+
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #4D4D4D;
+  box-sizing: border-box; }
+  .header .logo {
+    width: 100px;
+    height: auto;
+    display: inline-block;
+    float: left; }
+    .header .logo img {
+      width: 100%;
+      max-width: 100%;
+      height: auto; }
+  .header .carrello {
+    float: right; }
+
+.steps {
+  background-color: #F4F4F4; }
+  .steps__container {
+    width: 100%;
+    display: table;
+    padding: 15px 0; }
+  .steps--single {
+    display: table-cell;
+    text-align: center;
+    width: calc(100% / 3);
+    position: relative; }
+    .steps--single.disabledbtn:after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 33%;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: #4D4D4D;
+      z-index: 2; }
+    .steps--single:after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 33%;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: #0000FF;
+      z-index: 2; }
+    .steps--single a {
+      display: block;
+      margin: 0 auto;
+      width: 35px;
+      border-radius: 50%;
+      padding: 0.5rem;
+      background-color: #0000FF;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      line-height: 1.2em;
+      position: relative;
+      z-index: 3;
+      box-sizing: border-box; }
+      .steps--single a[disabled] {
+        background-color: #d0d0d0;
+        cursor: not-allowed;
+        border: 2px solid #0000FF;
+        box-sizing: border-box; }
+    .steps--single p {
+      margin-top: 10px;
+      text-transform: uppercase;
+      font-size: 10px; }
+    .steps--single:last-of-type:after {
+      display: none; }
+
+#prodotti__container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 15px; }
+  #prodotti__container .product-list {
+    text-align: center; }
+    #prodotti__container .product-list li {
+      display: inline-block;
+      padding: 10px;
+      text-align: center;
+      background: red;
+      border-right: 1px solid white; }
+      #prodotti__container .product-list li:hover {
+        opacity: 0.8;
+        cursor: pointer; }
+      #prodotti__container .product-list li a {
+        display: block;
+        margin: 0 auto;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+        line-height: 1.2em;
+        position: relative;
+        z-index: 3;
+        text-transform: uppercase;
+        box-sizing: border-box; }
+
+#materials .product-single {
+  width: 100%;
+  max-width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #F4F4F4;
+  min-height: 100px;
+  padding: 1rem;
+  margin: 30px 15px 0;
+  border-radius: 5px 0;
+  border-right: 2px solid #4D4D4D;
+  border-bottom: 2px solid #4D4D4D; }
+  #materials .product-single.selected {
+    background-color: blue; }
+#materials .product-modello {
+  font-family: "Lato", sans-serif;
+  font-size: 1.333rem;
+  font-weight: 700;
+  line-height: 1.20;
+  text-transform: uppercase;
+  text-align: left;
+  color: #0000FF; }
+#materials .product-brand {
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: slategrey; }
+#materials .product-details {
+  margin-bottom: 0.5rem; }
+#materials .product-image {
+  width: 49.5%;
+  display: inline-block; }
+  #materials .product-image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%; }
+#materials .product-addictedDetails {
+  width: 49.5%;
+  display: inline-block;
+  vertical-align: top; }
+#materials .product-materiale, #materials .product-grammatura, #materials .product-gender {
+  font-size: 0.8rem;
+  text-align: left;
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  padding-left: 0.5rem; }
+#materials .product-select {
+  margin-bottom: 0.5rem; }
+#materials .product-prezzo {
+  position: relative;
+  display: inline-block;
+  font-family: "Lato", sans-serif;
+  font-size: 1.333rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem; }
+#materials .product-btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.2em;
+  margin: 0 auto;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #0000FF; }
+#materials .technic-top {
+  width: 100%;
+  display: table; }
+#materials .technic-bottom {
+  display: none; }
+  #materials .technic-bottom__content {
+    display: table;
+    width: 100%; }
+#materials .technic-single {
+  width: 100%;
+  display: table;
+  vertical-align: top;
+  background-color: #F4F4F4;
+  padding: 1rem;
+  margin: 30px 0;
+  border-radius: 5px 0;
+  border-right: 2px solid #4D4D4D;
+  border-bottom: 2px solid #4D4D4D; }
+  #materials .technic-single.selected {
+    background-color: blue; }
+#materials .technic-name, #materials .technic-prezzo {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 16%; }
+  #materials .technic-name .price, #materials .technic-prezzo .price {
+    display: inline-block;
+    position: relative; }
+#materials .technic-description {
+  display: table-cell;
+  vertical-align: middle;
+  width: 67%; }
+#materials .technic-select-colore, #materials .technic-select-posizione {
+  display: table-cell;
+  width: 20%; }
+#materials .technic-dimension-input {
+  display: table-cell;
+  width: 20%; }
+#materials .technic-buttons {
+  display: table-cell;
+  width: 20%; }
+
+.with_currency:after {
+  display: block;
+  content: "\20AC";
+  font-size: 0.8em;
+  position: absolute;
+  left: 100%;
+  top: 3px; }
+
+#firstSummary {
+  display: table;
+  width: 100%;
+  padding: 0.5rem;
+  border-top: 2px solid #0000FF;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  min-height: 80px;
+  opacity: 0; }
+  #firstSummary .selectedImage {
+    width: 150px;
+    display: table-cell;
+    vertical-align: middle; }
+    #firstSummary .selectedImage img {
+      width: 50%;
+      height: auto;
+      max-width: 100%;
+      margin: 0 auto;
+      display: block; }
+  #firstSummary .selectedPrice {
+    display: table-cell;
+    vertical-align: middle;
+    width: 200px; }
+    #firstSummary .selectedPrice .title {
+      display: block;
+      font-size: 1.3rem;
+      text-transform: capitalize;
+      margin-bottom: 0.5rem; }
+    #firstSummary .selectedPrice .price {
+      position: relative;
+      display: inline-block;
+      font-size: 2rem; }
+  #firstSummary .selectedQuantity {
+    width: 100px;
+    display: table-cell;
+    vertical-align: middle; }
+  #firstSummary .selectQuantity {
+    width: 200px;
+    display: table-cell;
+    vertical-align: middle; }
+  #firstSummary .navigation {
+    display: table-cell;
+    vertical-align: middle; }
+
+/*# sourceMappingURL=stye.css.map */

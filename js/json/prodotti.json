@@ -1,0 +1,238 @@
+
+{
+    "magliette": [
+    {
+        "id": 1,
+        "modello": "valueweight",
+        "brand": "Fruit of the Loom",
+        "image": "../img/valueweight.jpg",
+        "materiale": "100% cotone",
+        "grammatura": "160g",
+        "colore": [
+            "giallo",
+            "verde"
+        ],
+        "taglia": ["xs", "s", "m", "l"],
+        "stampa": [
+        {
+            "spalla":
+            {
+                "altezza": 10,
+                "larghezza": 10
+            },
+            "fullFront":
+            {
+                "altezza": 40,
+                "larghezza": 30
+            }
+        }],
+        "tecniche":
+        {
+            "vinile":true,
+            "serigrafia": true,
+            "sublimazione": false,
+            "transfer":true
+        },
+        "gender": "m",
+        "prezzo": 2.50
+    },
+    {
+        "id": 2,
+        "modello": "valueweight",
+        "brand": "Fruit of the Loom",
+        "image": "../img/valueweight.jpg",
+        "materiale": "100% cotone",
+        "grammatura": "160g",
+        "colore": [
+            "giallo",
+            "verde"
+        ],
+        "taglia": ["xs", "s", "m", "l"],
+        "stampa": [
+        {
+            "spalla":
+            {
+                "altezza": 10,
+                "larghezza": 10
+            },
+            "fullFront":
+            {
+                "altezza": 40,
+                "larghezza": 30
+            }
+        }],
+        "tecniche":
+            {
+                "vinile":true,
+                "serigrafia": true,
+                "sublimazione": true,
+                "transfer":true
+            },
+        "gender": "m",
+        "prezzo": 2.50
+    },
+    {
+        "id": 3,
+        "modello": "valueweight",
+        "brand": "Fruit of the Loom",
+        "image": "",
+        "materiale": "100% cotone",
+        "grammatura": "160g",
+        "colore": [
+        ],
+        "taglia": ["xs", "s", "m", "l"],
+        "stampa": [
+        {
+            "spalla":
+            {
+                "altezza": 10,
+                "larghezza": 10
+            },
+            "fullFront":
+            {
+                "altezza": 40,
+                "larghezza": 30
+            }
+        }],
+        "tecniche":
+        {
+            "vinile":true,
+            "serigrafia": true,
+            "sublimazione": true,
+            "transfer":true
+        },
+        "gender": "m",
+        "prezzo": 2.50
+    },
+    {
+        "id": 4,
+        "modello": "valueweight",
+        "brand": "Fruit of the Loom",
+        "image": "",
+        "materiale": "100% cotone",
+        "grammatura": "160g",
+        "colore": [
+        ],
+        "taglia": ["xs", "s", "m", "l"],
+        "stampa": [
+        {
+            "spalla":
+            {
+                "altezza": 10,
+                "larghezza": 10
+            },
+            "fullFront":
+            {
+                "altezza": 40,
+                "larghezza": 30
+            }
+        }],
+        "tecniche":
+        {
+            "vinile":true,
+            "serigrafia": true,
+            "sublimazione": true,
+            "transfer":true
+        },
+        "gender": "m",
+        "prezzo": 2.50
+    }],
+    "polo": [
+     {
+        "id": 3,
+        "modello": "valueweight",
+        "brand": "Fruit of the Loom",
+        "image": "",
+        "materiale": "100% cotone",
+        "grammatura": "160g",
+        "colore": [
+        ],
+        "taglia": ["xs", "s", "m", "l"],
+        "stampa": [
+        {
+            "spalla":
+            {
+                "altezza": 10,
+                "larghezza": 10
+            },
+            "fullFront":
+            {
+                "altezza": 40,
+                "larghezza": 30
+            }
+        }],
+        "tecniche":
+        {
+            "vinile":true,
+            "serigrafia": true,
+            "sublimazione": true,
+            "transfer":true
+        },
+        "gender": "m",
+        "prezzo": 2.50
+    }],
+    "felpe": [
+     {
+        "id": 3,
+        "modello": "valueweight",
+        "brand": "Fruit of the Loom",
+        "image": "",
+        "materiale": "100% cotone",
+        "grammatura": "160g",
+        "colore": [
+        ],
+        "taglia": ["xs", "s", "m", "l"],
+        "stampa": [
+        {
+            "spalla":
+            {
+                "altezza": 10,
+                "larghezza": 10
+            },
+            "fullFront":
+            {
+                "altezza": 40,
+                "larghezza": 30
+            }
+        }],
+        "tecniche":
+        {
+            "vinile":true,
+            "serigrafia": true,
+            "sublimazione": true,
+            "transfer":true
+        },
+        "gender": "m",
+        "prezzo": 2.50
+    }],
+    "altro": [
+     {
+        "id": 3,
+        "modello": "valueweight",
+        "brand": "Fruit of the Loom",
+        "image": "",
+        "materiale": "100% cotone",
+        "grammatura": "160g",
+        "colore": [
+        ],
+        "taglia": ["xs", "s", "m", "l"],
+        "stampa": [
+        {
+            
+            "fullFront":
+            {
+                "altezza": 40,
+                "larghezza": 30
+            }
+        }],
+        "tecniche":
+        {
+            "vinile":true,
+            "serigrafia": true,
+            "sublimazione": true,
+            "transfer":true
+        },
+        "gender": "m",
+        "prezzo": 2.50
+    }]
+}

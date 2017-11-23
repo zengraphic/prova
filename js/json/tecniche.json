@@ -1,0 +1,64 @@
+{
+
+    "vinile": [{
+
+            "type": "flex",
+            "description": "Name of the product",
+            "colore": ["giallo", "blu", "bianco"],
+            "prezzo": 0.65
+
+        },
+        {
+
+            "type": "flock",
+            "description": "Name of the product",
+            "colore": [],
+            "prezzo": 0.65
+        },
+        {
+
+            "type": "pouff",
+            "description": "Name of the product",
+            "colore": [],
+            "prezzo": 0.65
+        },
+        {
+
+            "type": "glitter",
+            "description": "Name of the product",
+            "colore": [],
+            "prezzo": 0.65
+        }
+    ],
+    "transfer": [{
+        "type": "number",
+        "minimum": 0,
+        "prezzo": 0.65
+    }],
+    "sublimazione": [{
+        "type": "sublimazione",
+        "items": {
+            "type": "string"
+        },
+        "prezzo": 0.65
+    }],
+    "serigrafia": [{
+            "type": "softtouch",
+            "description": "Product identifier",
+            "colore": [
+                "giallo",
+                "verde"
+            ],
+            "prezzo": 0.65
+        },
+        {
+            "type": "plastisol",
+            "description": "Product identifier",
+            "colore": [
+                "giallo",
+                "verde"
+            ],
+            "prezzo": 0.85
+        }
+    ]
+}
