@@ -1,0 +1,24 @@
+{
+    "name": "ADG",
+    "version": "1.0.0",
+    "description": "html block dev system",
+    "keywords": [
+        "html-blocks"
+    ],
+    "author": "Alessandro Napolitano",
+    "license": "Unlicense",
+    "devDependencies": {
+        "browser-sync": "latest",
+        "bs-html-injector": "latest",
+        "node-sass": "latest",
+        "shell-executor": "latest",
+        "babel-polyfill": "latest"
+    },
+    "scripts": {
+        "build-base:styles": "node-sass --source-map=true css/style.scss css/style.css",
+        "watch-base:styles": "npm run build-base:styles && node-sass --source-map=true  --watch css/style.scss css/style.css",
+        "sync": "browser-sync start --plugins bs-html-injector?files[]=*.html --browser chrome  --files \"css/*.css\"  \"js/*.js\" --server  --reload-delay=200 --reload-debounce=500",
+        "dev": "shell-exec --colored-output \"npm run watch-base:styles\" \"npm run sync\" ",
+        "build:styles": "npm run build-base:styles"
+      }
+}

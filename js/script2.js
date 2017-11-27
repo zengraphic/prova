@@ -137,7 +137,8 @@
                 .on({
                     'click': function (e) {
                         e.preventDefault();
-                        ADG.removeApplication(adg$(this));
+                        ADG.removeApplication(adg$(this)).createSummary();
+                        ADG.updatePrice();
                         console.log(ADG.selectedProduct);
                     }
                 }, '.remove');
@@ -395,7 +396,7 @@
                             '</div>' +
 
                             '<div class="single-price">' + b.costo + '</div>' +
-                            '<div class="remove resume" data-id="'+ b.ID +'">x</div>' +
+                            '<div class="remove resume" data-id="' + b.ID + '">x</div>' +
                             '</div>';
                     })
 
@@ -573,7 +574,7 @@
                 '<div class="price with_currency">0</div>' +
                 '<div class="navigation">' +
                 '<button class="more">aggiungi</button>' +
-                '<button class="remove" data-id="'+ ADG.selectedProduct.applicazioni.length +'">rimuovi</button>' +
+                '<button class="remove" data-id="' + ADG.selectedProduct.applicazioni.length + '">rimuovi</button>' +
                 '</div>' +
                 '</div>' +
                 //populate position
@@ -767,94 +768,94 @@
         removeApplication: function (btn) {
             var ADG = this;
             var applications = ADG.selectedProduct.applicazioni,
-            id = btn.data('id');
+                id = btn.data('id');
             var result = adg$.grep(applications, function (e) {
-                    return e.ID == id;
+                return e.ID == id;
             });
             var toRemove = applications.indexOf(result);
             applications.splice(toRemove, 1);
 
-            if(btn.hasClass('resume')){
+            if (btn.hasClass('resume')) {
                 btn.parent().remove();
-                adg$('#materials').find('#'+id).remove();
-            }else{
+                adg$('#materials').find('#' + id).remove();
+            } else {
                 btn.parents('.single-application').remove();
-                adg$('#summary').find('#'+id).remove();
+                adg$('#summary').find('#' + id).remove();
             }
             return ADG;
         },
-        checkout: function (){
+        checkout: function () {
             var ADG = this;
             var cartObj = ADG.selectedProduct,
-            cart = adg$('#materials .container'),
-            html =
-            '<div class="summary-content" data-selected="' + cartObj.ID + '">' + //summary content
-            '<div class="nomelavorazione">Nome Lavorazione</div>'+
-            '<div class="product">' +
-            '<div class="selectedImage">' + //immagine
-            '<img src="' + cartObj.image + '">' +
-            '</div>' + //fine immagine
-            '<div class="product-info">' + //product info
-            '<div class="title">' + cartObj.modello + '</div>' +
-            '<div class="brand">' + cartObj.brand + '</div>' +
-            '<div class="selectedQuantity">' + //quantità
-            '<span class="multiplier">x</span>'+
-            '<span class="quantity">' + cartObj.quantity + '</span>'+
-            '</div>' + //fine quantità
-            '<div class="selectedcolor">';
-        cartObj.color != undefined ? html += '<div class="color">' + cartObj.color + '</div></div>' : html += '</div>';
+                cart = adg$('#materials .container'),
+                html =
+                '<div class="summary-content" data-selected="' + cartObj.ID + '">' + //summary content
+                '<div class="nomelavorazione">Nome Lavorazione</div>' +
+                '<div class="product">' +
+                '<div class="selectedImage">' + //immagine
+                '<img src="' + cartObj.image + '">' +
+                '</div>' + //fine immagine
+                '<div class="product-info">' + //product info
+                '<div class="title">' + cartObj.modello + '</div>' +
+                '<div class="brand">' + cartObj.brand + '</div>' +
+                '<div class="selectedQuantity">' + //quantità
+                '<span class="multiplier">x</span>' +
+                '<span class="quantity">' + cartObj.quantity + '</span>' +
+                '</div>' + //fine quantità
+                '<div class="selectedcolor">';
+            cartObj.color != undefined ? html += '<div class="color">' + cartObj.color + '</div></div>' : html += '</div>';
 
-        html += '<div class="selectedsize">';
-        cartObj.size != 'undefined' ? html += '<div class="size">' + cartObj.size + '</div></div>' : html += '</div>';
-        html += '</div>' + //fine product info
-            '</div>' ; //fine product
-        if (cartObj.applicazioni.length > 0) {
-            html += '<div class="application">' +
-                '<div class="application-container">';
+            html += '<div class="selectedsize">';
+            cartObj.size != 'undefined' ? html += '<div class="size">' + cartObj.size + '</div></div>' : html += '</div>';
+            html += '</div>' + //fine product info
+                '</div>'; //fine product
+            if (cartObj.applicazioni.length > 0) {
+                html += '<div class="application">' +
+                    '<div class="application-container">';
 
-            adg$.each(cartObj.applicazioni, function (a, b) {
-                html += '<div class="single" id="' + b.ID + '">' +
-                    '<div class="single-details">' +
-                    '<div class="single-tecnica">';
-                b.tecnica != '0' ? html += '<div class="type">' + b.tecnica + '</div>' : html += '<div class="type"></div>';
-                b.tipo != '0' ? html += '<div class="style">' + b.tipo + '</div>' : html += '<div class="style"></div>';
-                b.colore != '0' ? html += '<div class="color">' + b.colore + '</div>' : html += '<div class="color"></div>';
+                adg$.each(cartObj.applicazioni, function (a, b) {
+                    html += '<div class="single" id="' + b.ID + '">' +
+                        '<div class="single-details">' +
+                        '<div class="single-tecnica">';
+                    b.tecnica != '0' ? html += '<div class="type">' + b.tecnica + '</div>' : html += '<div class="type"></div>';
+                    b.tipo != '0' ? html += '<div class="style">' + b.tipo + '</div>' : html += '<div class="style"></div>';
+                    b.colore != '0' ? html += '<div class="color">' + b.colore + '</div>' : html += '<div class="color"></div>';
+                    html += '</div>' +
+                        '<div class="single-posizione">' +
+                        '<div class="position">' + b.posizione + '</div>' +
+                        '<div class="width">' + b.larghezza + '</div>' +
+                        '<div class="ics">x</div>' +
+                        '<div class="height">' + b.altezza + '</div>' +
+                        '</div>' +
+
+                        '</div>' +
+
+                        '<div class="single-price">' + b.costo + '</div>' +
+                        '<div class="remove resume" data-id="' + b.ID + '">x</div>' +
+                        '</div>';
+                })
+
                 html += '</div>' +
-                    '<div class="single-posizione">' +
-                    '<div class="position">' + b.posizione + '</div>' +
-                    '<div class="width">' + b.larghezza + '</div>' +
-                    '<div class="ics">x</div>' +
-                    '<div class="height">' + b.altezza + '</div>' +
-                    '</div>' +
-
-                    '</div>' +
-
-                    '<div class="single-price">' + b.costo + '</div>' +
-                    '<div class="remove resume" data-id="'+ b.ID +'">x</div>' +
                     '</div>';
-            })
-
-            html += '</div>' +
+            } else {
+                html += '<div></div>';
+            }
+            // price
+            html += '<div class="selectedPrice">' +
+                '<span class="price with_currency" data-price="' + cartObj.price + '">Prezzo totale' + cartObj.totalPrice + '</span>' +
                 '</div>';
-        } else {
-            html += '<div></div>';
-        }
-        // price
-        html += '<div class="selectedPrice">' +
-            '<span class="price with_currency" data-price="' + cartObj.price + '">Prezzo totale'+ cartObj.totalPrice +'</span>' +
-            '</div>';
 
-        //navigation
-        html += '<div class="navigation">' +
-        '<button class="new">nuova</button>' +
-        '<button class="send">invia</button>' +
-        '</div>';
-        //fine navigation
-        html += '</div>'; //fine summary
+            //navigation
+            html += '<div class="navigation">' +
+                '<button class="new">nuova</button>' +
+                '<button class="send">invia</button>' +
+                '</div>';
+            //fine navigation
+            html += '</div>'; //fine summary
 
-        cart.append(html).show();
+            cart.append(html).show();
 
-        
+
             return ADG;
         },
         showError: function (message, value) {
@@ -873,6 +874,5 @@
     adg$(document).ready(function () {
         ADG.init();
     });
-
 
 })(jQuery);
