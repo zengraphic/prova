@@ -7,7 +7,7 @@
 */
 
 
-(function (adg$) {
+(function(adg$) {
 
     var ADG = {
         lavorazioni: {},
@@ -15,28 +15,28 @@
         selectedProduct: {},
         tecniche: {},
 
-        init: function () {
+        init: function() {
             ADG
                 .bindActions()
                 .getData('prodotti');
         },
-        bindActions: function () {
+        bindActions: function() {
             var ADG = this;
             adg$('body')
                 .on({
-                    'click': function () {
+                    'click': function() {
                         var productID = adg$(this).attr('id');
                         ADG.showProducts(productID);
                     }
                 }, '.product_btn')
                 .on({
-                    'change': function () {
+                    'change': function() {
                         var select = adg$(this);
                         ADG.checkSelected(select);
                     }
                 }, '.select')
                 .on({
-                    'click': function (e) {
+                    'click': function(e) {
                         e.preventDefault();
                         var btn = adg$(this);
                         ADG
@@ -44,13 +44,13 @@
                     }
                 }, '.product-cta')
                 .on({
-                    'keyup': function () {
+                    'keyup': function() {
                         ADG.updatePrice();
                         ADG.updateQuantity();
                     }
                 }, 'input[name="shirtQuantity"]')
                 .on({
-                    'click': function (e) {
+                    'click': function(e) {
                         e.preventDefault();
                         console.log('azzera da fare');
                         adg$('#materials .container').html('');
@@ -60,13 +60,13 @@
                     }
                 }, '.custom')
                 .on({
-                    'click': function (e) {
+                    'click': function(e) {
                         e.preventDefault();
                         console.log('vai indietro');
                     }
                 }, '.back')
                 .on({
-                    'click': function (e) {
+                    'click': function(e) {
                         e.preventDefault();
                         console.log('aggiungi al carrello');
                         var totalprice = adg$(this).parents('.summary-content').find('.price').text();
@@ -80,7 +80,7 @@
                     }
                 }, '.cart')
                 .on({
-                    'click': function (e) {
+                    'click': function(e) {
                         e.preventDefault();
                         ADG
                             .getData('tecniche');
@@ -88,7 +88,7 @@
                     }
                 }, '.addCustom')
                 .on({
-                    'blur': function () {
+                    'blur': function() {
                         ADG
                             .checkDimension(adg$(this))
                             .calculatePrice(adg$(this));
@@ -96,7 +96,7 @@
 
                 }, '.dimension')
                 .on({
-                    'change': function (e) {
+                    'change': function(e) {
                         e.preventDefault();
                         var ID = adg$(this).parents('.single-application').attr('id'),
                             key = adg$(this).data('select'),
@@ -105,19 +105,19 @@
                     }
                 }, '.select-technics')
                 .on({
-                    'change': function (e) {
+                    'change': function(e) {
                         e.preventDefault();
                         ADG.updateApplication(adg$(this));
                     }
                 }, '.application-select')
                 .on({
-                    'change': function (e) {
+                    'change': function(e) {
                         e.preventDefault();
                         ADG.setDimenzionLimit(adg$(this));
                     }
                 }, '.select-position')
                 .on({
-                    'change': function (e) {
+                    'change': function(e) {
                         e.preventDefault();
                         var tecnica = adg$(this).parents('.single-application--elements').find('.select-technics').val(),
                             select = adg$(this);
@@ -125,7 +125,7 @@
                     }
                 }, '.select-style')
                 .on({
-                    'click': function (e) {
+                    'click': function(e) {
                         e.preventDefault();
                         ADG
                             .addApplication(adg$(this))
@@ -135,7 +135,7 @@
                     }
                 }, '.more')
                 .on({
-                    'click': function (e) {
+                    'click': function(e) {
                         e.preventDefault();
                         ADG.removeApplication(adg$(this)).createSummary();
                         ADG.updatePrice();
@@ -145,45 +145,45 @@
             return ADG;
         },
         /* CHIAMATA AJAX GENERICA */
-        ajaxCall: function (dataType) {
+        ajaxCall: function(dataType) {
             return adg$.ajax({
                 type: "GET",
                 url: 'js/json/' + dataType + '.json',
                 dataType: 'json'
             });
         },
-        getData: function (dataType) {
+        getData: function(dataType) {
             var ADG = this;
             var getData = new adg$.Deferred();
 
             var AjaxCallPromise = getData
-                .then(function () {
+                .then(function() {
                     return ADG.ajaxCall(dataType);
                 })
-                .done(function (data) {})
-                .fail(function () {});
+                .done(function(data) {})
+                .fail(function() {});
 
             var interpolateDataPromise = AjaxCallPromise
-                .then(function (data) {
+                .then(function(data) {
                     if (dataType == 'prodotti') {
                         return ADG.saveProducts(data, dataType);
                     } else {
                         return ADG.saveTechnics(data, dataType);
                     }
                 })
-                .done(function () {})
-                .fail(function () {});
+                .done(function() {})
+                .fail(function() {});
             getData
                 .resolve();
 
             return getData.promise();
         },
-        saveProducts: function (data, dataType) {
+        saveProducts: function(data, dataType) {
             var ADG = this,
                 productsBtn = [],
                 productsArray = data,
                 container = adg$('#prodotti__container');
-            adg$.each(productsArray, function (index, product) {
+            adg$.each(productsArray, function(index, product) {
                 //salva nome prodotti nell'array dei bottoni
                 productsBtn.push('<li><a href="javascript:void(0)" id="' + index + '" class="product_btn">' + index + '</a></li>');
                 //salva i prodotti
@@ -195,14 +195,14 @@
                 html: productsBtn.join('')
             }).appendTo(container);
         },
-        saveTechnics: function (data, dataType) {
+        saveTechnics: function(data, dataType) {
             var ADG = this,
                 productsArray = data;
-            adg$.each(productsArray, function (index, product) {
+            adg$.each(productsArray, function(index, product) {
                 ADG.tecniche[index] = product;
             });
         },
-        showProducts: function (productID) {
+        showProducts: function(productID) {
             var ADG = this,
                 products = productID,
                 productObj = ADG.prodotti[products],
@@ -210,7 +210,7 @@
                 container = adg$('#materials .container');
 
             container.html('');
-            adg$.each(productObj, function (index, el) {
+            adg$.each(productObj, function(index, el) {
 
                 html += '<div class="product-single" id="' + el.id + '" data-prezzo="' + el.prezzo + '" data-brand="' + el.brand + '"  data-modello="' + el.modello + '" data-type="' + productID + '" data-index="' + index + '" >' +
                     '<div class="product-modello">' + el.modello + '</div>' +
@@ -230,7 +230,7 @@
                     html += '<select class="select select_colore" data-select="color">' +
                         '<option value="0">colore</option>';
 
-                    adg$.each(el.colore, function (i, colore) {
+                    adg$.each(el.colore, function(i, colore) {
                         html += '<option value="' + colore + '">' + colore + '</option>';
                     });
                     html += '</select>';
@@ -238,7 +238,7 @@
                 if (el.taglia.length > 0) {
                     html += '<select class="select select_taglia" data-select="size">' +
                         '<option value="0">taglia</option>';
-                    adg$.each(el.taglia, function (i, taglia) {
+                    adg$.each(el.taglia, function(i, taglia) {
                         html += '<option value="' + taglia + '">' + taglia + '</option>';
                     });
                     html += '</select>';
@@ -251,7 +251,7 @@
             container.append(html);
             return ADG;
         },
-        activeCards: function (btn) {
+        activeCards: function(btn) {
             var ADG = this;
             var card = btn.parent(),
                 summary = adg$('#summary'),
@@ -268,7 +268,7 @@
             }
             return ADG;
         },
-        checkSelected: function (select) {
+        checkSelected: function(select) {
             var ADG = this,
                 selectKey = select.data('select'),
                 selectVal = select.val(),
@@ -278,7 +278,7 @@
                 button = selectedCard.find('.product-cta'),
                 selected = 0;
 
-            selectItem.each(function () {
+            selectItem.each(function() {
                 var value = adg$(this).val();
                 if (value != '0') {
                     selected++;
@@ -301,7 +301,7 @@
 
             return ADG;
         },
-        saveSelectedProduct: function (btn) {
+        saveSelectedProduct: function(btn) {
             var ADG = this;
             var selected = btn.parent(),
                 //recupero type e index per recuperare le posizioni
@@ -332,7 +332,7 @@
 
             return ADG;
         },
-        createSummary: function () {
+        createSummary: function() {
             var ADG = this;
             var summaryObj = ADG.selectedProduct,
                 summary = adg$('#summary'),
@@ -378,7 +378,7 @@
                     html += '<div class="application">' +
                         '<div class="application-container">';
 
-                    adg$.each(summaryObj.applicazioni, function (a, b) {
+                    adg$.each(summaryObj.applicazioni, function(a, b) {
                         html += '<div class="single" id="' + b.ID + '">' +
                             '<div class="single-details">' +
                             '<div class="single-tecnica">';
@@ -413,7 +413,7 @@
                         var applicationSum = 0,
                             sum;
 
-                        adg$.each(summaryObj.applicazioni, function (k, v) {
+                        adg$.each(summaryObj.applicazioni, function(k, v) {
                             var price = summaryObj.applicazioni[k].costo;
                             applicationSum += price;
                         });
@@ -428,7 +428,7 @@
                         var applicationSum = 0,
                             sum;
 
-                        adg$.each(summaryObj.applicazioni, function (k, v) {
+                        adg$.each(summaryObj.applicazioni, function(k, v) {
                             var price = summaryObj.applicazioni[k].costo;
                             applicationSum += price;
                         });
@@ -464,7 +464,7 @@
             }
             return ADG;
         },
-        updateSelected: function (object, key, value, ID) {
+        updateSelected: function(object, key, value, ID) {
             var ADG = this;
 
             var keyToCheck = key,
@@ -493,7 +493,7 @@
             ADG.createSummary();
             return ADG;
         },
-        updatePrice: function () {
+        updatePrice: function() {
             var ADG = this;
             var resume = adg$('#summary'),
                 resumeApplication = resume.find('.single'),
@@ -503,7 +503,7 @@
             if (inputval > 0) {
                 if (resumeApplication.length > 0) {
                     applicationSum = 0
-                    adg$.each(resumeApplication, function () {
+                    adg$.each(resumeApplication, function() {
                         var price = +adg$(this).find('.single-price').html();
                         applicationSum += price;
                     });
@@ -518,7 +518,7 @@
             }
             return ADG;
         },
-        updateQuantity: function () {
+        updateQuantity: function() {
             var ADG = this;
             var resume = adg$('#summary'),
                 quantita = resume.find('.quantity'),
@@ -528,11 +528,15 @@
             inputval == "" ? ADG.selectedProduct.quantity = 1 : ADG.selectedProduct.quantity = inputval;
             return ADG;
         },
-        addCustom: function () {
+        addCustom: function() {
             var ADG = this,
-                container = adg$('#materials .container');
+                container = adg$('#materials .container'),
+                applicationArrayLength = ADG.selectedProduct.applicazioni.length,
+                singleApplicationLength = adg$('.single-application').length,
+                ID = 0;
+            singleApplicationLength != 0 ? ID = singleApplicationLength + 1 : ID = applicationArrayLength + 1;
 
-            var newApplication = '<div class="single-application" id="' + ADG.selectedProduct.applicazioni.length + '">' +
+            var newApplication = '<div class="single-application" id="' + ID + '">' +
 
                 '<div class="single-application--title">' +
                 'Aggiungi la tua applicazione' +
@@ -542,7 +546,7 @@
                 '<div class="technics">' +
                 '<select name="tecnichs" data-select="tecnica" class="application-select select-technics">' +
                 '<option value="0">Seleziona la tecnica</option>';
-            adg$.each(ADG.selectedProduct.technics, function (tecnica, value) {
+            adg$.each(ADG.selectedProduct.technics, function(tecnica, value) {
                 if (value == true) {
                     newApplication += '<option data-select="tecnica" value="' + tecnica + '">' + tecnica + '</option>';
                 }
@@ -562,7 +566,7 @@
                 '<div class="position">' +
                 '<select name="position" class="application-select select-position" data-select="posizione">' +
                 '<option value="0">Seleziona la posizione</option>';
-            adg$.each(ADG.selectedProduct.positions, function (position, value) {
+            adg$.each(ADG.selectedProduct.positions, function(position, value) {
                 newApplication += '<option value="' + position + '">' + position + '</option>';
             });
             newApplication += ' </select>' +
@@ -585,14 +589,14 @@
             container.append(newApplication);
             return ADG;
         },
-        handleTechic: function (select) {
+        handleTechic: function(select) {
             var ADG = this,
                 selectItem = select.parents('.single-application--elements').find('.select-style'),
                 selectVal = select.val(),
                 optionSelect = '<option value="0">Seleziona lo stile</option>';
 
             if (selectVal != '0') {
-                adg$.each(ADG.tecniche[selectVal], function (i, val) {
+                adg$.each(ADG.tecniche[selectVal], function(i, val) {
                     optionSelect += '<option value="' + val.type + '" data-price="' + val.prezzo + '">' + val.type + '</option>';
                 });
                 selectItem.html('');
@@ -605,7 +609,7 @@
             }
             return ADG;
         },
-        populateColor: function (tecnica, select) {
+        populateColor: function(tecnica, select) {
             var ADG = this,
                 selectColor = select.parents('.single-application--elements').find('.select-color'),
                 selectStyle = select,
@@ -613,12 +617,12 @@
                 optionSelect = '<option value="0">Seleziona il colore</option>';
 
             if (!selectStyle.is(':disabled') && selectStyle.val() != '0') {
-                adg$.each(ADG.tecniche[tecnica], function (i, styleObj) {
+                adg$.each(ADG.tecniche[tecnica], function(i, styleObj) {
                     if (styleVal === styleObj.type) {
 
                         if (styleObj.colore != undefined) {
                             if (styleObj.colore.length != '0') {
-                                adg$.each(styleObj.colore, function (i, colore) {
+                                adg$.each(styleObj.colore, function(i, colore) {
                                     optionSelect += '<option value="' + colore + '">' + colore + '</option>';
                                 });
                                 selectColor.html('');
@@ -642,7 +646,7 @@
             }
             return ADG;
         },
-        setDimenzionLimit: function (select) {
+        setDimenzionLimit: function(select) {
             var ADG = this,
                 position = select.val(),
                 selectedDimensions = ADG.selectedProduct.positions[position],
@@ -656,12 +660,12 @@
             altezza.prop('max', selectedDimensions.altezza);
             return ADG;
         },
-        checkDimension: function (input) {
+        checkDimension: function(input) {
             var ADG = this,
                 inputVal = input.val(),
                 inputMax = input.attr('max'),
                 inputName = input.attr('name');
-            emptyElement = input.parent().find('.dimension').filter(function () {
+            emptyElement = input.parent().find('.dimension').filter(function() {
                 return this.value == "";
             });
             if (+inputVal > +inputMax) {
@@ -670,7 +674,7 @@
             }
             return ADG;
         },
-        calculatePrice: function (element) {
+        calculatePrice: function(element) {
             var ADG = this;
             var style = element.parents('.single-application--elements').find('.select-style option:selected'),
                 altezza = +element.parents('.single-application--elements').find('.altezza').val(),
@@ -678,7 +682,7 @@
                 priceContainer = element.parents('.single-application--elements').find('.price'),
                 object = ADG.selectedProduct.applicazioni,
                 ID = element.parents('.single-application').attr('id'),
-                emptyElement = element.parents('.single-application--elements').find('.dimension').filter(function () {
+                emptyElement = element.parents('.single-application--elements').find('.dimension').filter(function() {
                     return this.value == "";
                 });
 
@@ -708,7 +712,7 @@
 
             return ADG;
         },
-        addApplication: function (btn) {
+        addApplication: function(btn) {
             var ADG = this,
                 ID = btn.parents('.single-application').attr('id'),
                 tecnica = btn.parents('.single-application--elements').find('.select-technics').val(),
@@ -719,7 +723,7 @@
                 larghezza = btn.parents('.single-application--elements').find('.larghezza').val(),
                 costo = +btn.parents('.single-application--elements').find('.price').html(),
                 applicationArray = ADG.selectedProduct.applicazioni,
-                emptyElement = btn.parents('.single-application--elements').find('.dimension').filter(function () {
+                emptyElement = btn.parents('.single-application--elements').find('.dimension').filter(function() {
                     return this.value == "";
                 });
 
@@ -744,7 +748,7 @@
             return ADG;
         },
         //TODO updateApplication con seconda applicazione
-        updateApplication: function (select) {
+        updateApplication: function(select) {
             var ADG = this;
             var ID = select.parents('.single-application').attr('id'),
                 object = ADG.selectedProduct.applicazioni,
@@ -752,7 +756,7 @@
             if (object.length > 0) {
                 for (var i in object) {
                     if (object[i].ID == ID) {
-                        selectTocheck.each(function () {
+                        selectTocheck.each(function() {
                             var key = adg$(this).data('select'),
                                 value = adg$(this).val();
                             ADG.updateSelected(object, key, value, ID);
@@ -765,11 +769,11 @@
             }
             return ADG;
         },
-        removeApplication: function (btn) {
+        removeApplication: function(btn) {
             var ADG = this;
             var applications = ADG.selectedProduct.applicazioni,
                 id = btn.data('id');
-            var result = adg$.grep(applications, function (e) {
+            var result = adg$.grep(applications, function(e) {
                 return e.ID == id;
             });
             var toRemove = applications.indexOf(result);
@@ -784,7 +788,7 @@
             }
             return ADG;
         },
-        checkout: function () {
+        checkout: function() {
             var ADG = this;
             var cartObj = ADG.selectedProduct,
                 cart = adg$('#materials .container'),
@@ -813,7 +817,7 @@
                 html += '<div class="application">' +
                     '<div class="application-container">';
 
-                adg$.each(cartObj.applicazioni, function (a, b) {
+                adg$.each(cartObj.applicazioni, function(a, b) {
                     html += '<div class="single" id="' + b.ID + '">' +
                         '<div class="single-details">' +
                         '<div class="single-tecnica">';
@@ -858,7 +862,7 @@
 
             return ADG;
         },
-        showError: function (message, value) {
+        showError: function(message, value) {
             var ADG = this;
             adg$.magnificPopup.open({
                 items: {
@@ -871,7 +875,7 @@
 
     };
 
-    adg$(document).ready(function () {
+    adg$(document).ready(function() {
         ADG.init();
     });
 
