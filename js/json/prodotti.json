@@ -1,6 +1,6 @@
 
-{
-    "magliette": [
+[
+    {"magliette": [
     {
         "id": 1,
         "modello": "valueweight",
@@ -136,8 +136,8 @@
         },
         "gender": "m",
         "prezzo": 2.50
-    }],
-    "polo": [
+    }]},
+    {"polo": [
      {
         "id": 3,
         "modello": "valueweight",
@@ -170,8 +170,8 @@
         },
         "gender": "m",
         "prezzo": 2.50
-    }],
-    "felpe": [
+    }]},
+    {"felpe": [
      {
         "id": 3,
         "modello": "valueweight",
@@ -204,8 +204,8 @@
         },
         "gender": "m",
         "prezzo": 2.50
-    }],
-    "altro": [
+    }]},
+    {"altro": [
      {
         "id": 3,
         "modello": "valueweight",
@@ -234,5 +234,4 @@
         },
         "gender": "m",
         "prezzo": 2.50
-    }]
-}
+    }]}]
